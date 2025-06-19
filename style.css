@@ -1,0 +1,356 @@
+     .form-wrapper {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f9f9f9;
+            width: 60%;
+     }
+         .news-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .news-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .news-title:hover {
+          color: green; /* Đổi màu chữ thành đỏ khi di chuột vào */
+        }
+        .news-time {
+            font-size: 12px;
+            color: gray;
+        }
+        .search-news-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .search-news-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .search-news-content {
+            flex: 1;
+        }
+        .search-news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .search-news-title:hover {
+          color: green; /* Đổi màu chữ thành đỏ khi di chuột vào */
+        }
+        .search-news-time {
+            font-size: 12px;
+            color: gray;
+        }
+    .card-body img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+    }
+    .logo {
+            border-radius: 100px;
+            width: 50px;
+            height: 50px;
+        }
+    .notification {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.content {
+    font-size: 14px;
+}
+
+strong {
+    display: block;
+    margin-bottom: 5px;
+        }
+        .podcast-container {
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto; /* Căn giữa container theo chiều ngang */
+}
+
+.podcast-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.podcast-image {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.podcast-image img {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.podcast-details {
+  flex-grow: 1;
+}
+
+.podcast-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.podcast-description {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.podcast-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.podcast-actions {
+  display: flex;
+}
+
+.action-icon {
+  margin-left: 10px;
+}
+
+.action-icon img {
+  width: 20px;
+  height: 20px;
+}
+  .audio-player-container { /* Kiểu dáng cho container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-player {
+    background-color: white;
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audio-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.audio-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.audio-details {
+    flex-grow: 1;
+}
+
+.audio-title {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.audio-meta, .audio-description {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.audio-controls {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.current-time, .total-time {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    margin: 0 10px;
+    color: red;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.playback-controls button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.playback-speed {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.author {
+    text-align: right;
+    font-size: 0.9em;
+    color: #555;
+}
+        #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.3); /* Có thể nhìn thấy nội dung */
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.3s ease;
+      pointer-events: auto; /* chặn tương tác */
+    }
+
+    .loading-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .linear-loader {
+      position: relative;
+      height: 4px;
+      width: 200px;
+      background-color: #e0e0e0;
+      overflow: hidden;
+      border-radius: 2px;
+      margin-bottom: 10px;
+    }
+
+    .linear-loader::before,
+    .linear-loader::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      background-color: #1a73e8;
+      will-change: left, right;
+      animation: indeterminate 2s infinite;
+    }
+
+    .linear-loader::after {
+      animation: indeterminate-short 2s infinite;
+    }
+
+    @keyframes indeterminate {
+      0% { left: -35%; right: 100%; }
+      60% { left: 100%; right: -90%; }
+      100% { left: 100%; right: -90%; }
+    }
+
+    @keyframes indeterminate-short {
+      0% { left: -200%; right: 100%; }
+      60% { left: 107%; right: -8%; }
+      100% { left: 107%; right: -8%; }
+    }
+    .loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color:rgb(0, 110, 255) #0000 #fff #0000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: 1s rotate linear infinite;
+ }
+ .loader:before , .loader:after{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 10px solid transparent;
+    border-bottom-color:#fff;
+    transform: translate(-10px, 19px) rotate(-35deg);
+  }
+ .loader:after {
+    border-color: rgb(0, 110, 255) #0000 #0000 #0000 ;
+    transform: translate(32px, 3px) rotate(-35deg);
+  }
+   @keyframes rotate {
+    100%{    transform: rotate(360deg)}
+  }
