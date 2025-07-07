@@ -1,0 +1,215 @@
+  .dropdown {
+      width: 300px; /* Điều chỉnh chiều rộng của thanh tìm kiếm */
+    }
+    .dropdown-menu {
+      width: 100%; /* Đảm bảo dropdown menu có cùng chiều rộng với input */
+      max-height: 200px; /* Giới hạn chiều cao và thêm scroll nếu cần */
+      overflow-y: auto;
+    }
+
+         .news-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .news-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .news-title:hover {
+          color: green; /* Đổi màu chữ thành đỏ khi di chuột vào */
+        }
+        .news-time {
+            font-size: 12px;
+            color: gray;
+        }    
+
+        .vjs-default-skin .vjs-control-bar {
+    background: none;
+  }
+
+  .vjs-play-progress,
+  .vjs-volume-level {
+    background-color: #1e8ae9 !important; 
+  }
+
+  .vjs-big-play-button {
+    background: rgba(233, 30, 99, 0.7);
+    border: none;
+    font-size: 2em;
+  }
+
+          /* CSS cho menu tùy chỉnh */
+        #custom-context-menu {
+            display: none; /* Ban đầu ẩn menu */
+            position: absolute; /* Quan trọng để định vị tự do */
+            background-color: #fff; /* Nền trắng cho menu */
+            border: 1px solid #ccc; /* Viền xám nhạt */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+            border-radius: 4px; /* Bo góc nhẹ */
+            padding: 5px 0; /* Khoảng cách đệm bên trong */
+            z-index: 9999; /* Đảm bảo menu luôn nằm trên cùng */
+            min-width: 150px; /* Chiều rộng tối thiểu */
+        }
+
+        #custom-context-menu .menu-item {
+            display: block; /* Mỗi mục menu là một khối */
+            padding: 8px 15px; /* Khoảng cách đệm cho từng mục */
+            color: #333; /* Màu chữ */
+            text-decoration: none; /* Bỏ gạch chân link */
+            font-family: Arial, sans-serif; /* Font chữ */
+            font-size: 14px; /* Kích thước chữ */
+            cursor: pointer; /* Biểu tượng con trỏ khi di chuột qua */
+        }
+
+        #custom-context-menu .menu-item:hover {
+            background-color: #e9e9e9; /* Màu nền khi di chuột qua */
+            color: #000; /* Màu chữ khi di chuột qua */
+        }
+
+        #custom-context-menu .menu-divider {
+            height: 1px; /* Chiều cao của đường phân cách */
+            background-color: #eee; /* Màu của đường phân cách */
+            margin: 5px 0; /* Khoảng cách trên dưới đường phân cách */
+        }
+
+        /* CSS để vô hiệu hóa chọn văn bản trên toàn trang */
+        body {
+            user-select: none; /* Standard syntax */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            cursor: default; /* Đặt con trỏ mặc định cho body */
+        }
+
+.movie-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10px;
+}
+
+.movie-item {
+    /* movie-item giờ chỉ là container để chứa thẻ a */
+    position: relative; /* Để định vị nhãn "Full" */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo các item có chiều cao bằng nhau */
+    /* Loại bỏ background và shadow khỏi movie-item */
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.movie-item a {
+    text-decoration: none; /* Bỏ gạch chân mặc định của link */
+    color: inherit; /* Kế thừa màu chữ từ cha */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo link chiếm toàn bộ item */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff; /* Đặt background-color trên thẻ a */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đặt box-shadow trên thẻ a */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-item a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.movie-item img {
+    width: 100%;
+    height: 250px; /* Chiều cao cố định cho ảnh */
+    object-fit: cover;
+    display: block;
+}
+
+.movie-title {
+    padding: 10px;
+    font-size: 0.95em;
+    color: #333;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 5px;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.3;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .movie-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+    .movie-item img {
+        height: 200px;
+    }
+    .movie-title {
+        font-size: 0.9em;
+        min-height: 35px;
+    }
+    .full-tag {
+        font-size: 0.75em;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+        padding: 5px;
+    }
+    .movie-item img {
+        height: 160px;
+    }
+    .movie-title {
+        font-size: 0.8em;
+        min-height: 30px;
+    }
+    .full-tag {
+        font-size: 0.7em;
+        padding: 2px 5px;
+    }
+}
