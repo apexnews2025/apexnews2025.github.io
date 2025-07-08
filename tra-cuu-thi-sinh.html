@@ -73,7 +73,7 @@
     <script>
         // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
         const candidates = [
-        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", id: "TIO-1659", password:"TIO-1659@@", listening: "Chưa có thông tin", writing: "Chưa có thông tin",},
+        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", password:"TIO-1659@@", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
         ];
 
         // Hàm chuyển đổi định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
@@ -115,12 +115,14 @@
         <strong>Ngày sinh: </strong> ${candidate.dob}<br>
         <strong>Trường:</strong> ${candidate.school}<br>
         <strong>Lớp:</strong> ${candidate.grade}<br>
+        <strong>Vòng thi:</strong> ${candidate.round}<br>
         <strong>SBD(Tên đăng nhập):</strong> ${candidate.id}<br>
         <strong>Mật khẩu:</strong> ${candidate.password}<br>
         <hr>
         <strong>Điểm thi</strong><br>
         <strong>Điểm bài nghe:</strong> <strong style="color: red;">${candidate.listening}</strong><br>
-        <strong>Điểm bài đọc hiểu:</strong> <strong style="color: red;">${candidate.writing}</strong>
+        <strong>Điểm bài đọc hiểu:</strong> <strong style="color: red;">${candidate.writing}</strong><br>
+        <strong>Kết quả:</strong> <strong style="color: red;">${candidate.result}</strong>
                 `;
             } else {
                 errorDiv.textContent = 'Không tìm thấy thí sinh hoặc sai thông tin!';
