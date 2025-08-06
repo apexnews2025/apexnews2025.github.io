@@ -124,13 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Ẩn menu khi nhấp vào bất cứ đâu trên trang
-            document.addEventListener('click', function(e) {
-                // Nếu click không phải là bên trong menu
-                if (!customContextMenu.contains(e.target)) {
-                    customContextMenu.style.display = 'none';
-                }
-            });
+// Ẩn menu khi nhấp vào bất cứ đâu trên trang
+document.addEventListener('click', function(e) {
+    // Lấy phần tử được click
+    const clickedElement = e.target;
+
+    // Kiểm tra nếu click không phải là bên trong menu HOẶC click vào một thẻ <a> có class là menu-item
+    if (!customContextMenu.contains(clickedElement) || clickedElement.matches('.menu-item')) {
+        customContextMenu.style.display = 'none';
+    }
+});
 
             // Ngăn chặn sao chép toàn bộ trang
             document.addEventListener('copy', function(e) {
