@@ -89,13 +89,13 @@
         }
 
         /* CSS để vô hiệu hóa chọn văn bản trên toàn trang */
-        body {
-            user-select: none; /* Standard syntax */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+ */
-            cursor: default; /* Đặt con trỏ mặc định cho body */
-        }
+/*         body {
+            user-select: none; 
+            -webkit-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            cursor: default;
+        } */
 
 .movie-grid-container {
     display: grid;
@@ -214,3 +214,4 @@
         padding: 2px 5px;
     }
 }
+
