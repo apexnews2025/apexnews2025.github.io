@@ -7,7 +7,30 @@
       overflow-y: auto;
     }
 
-    
+    .notification {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.content {
+    font-size: 14px;
+}
+
+strong {
+    display: block;
+    margin-bottom: 5px;
+        }
          .news-item {
             display: flex;
             align-items: center;
@@ -214,4 +237,5 @@
         padding: 2px 5px;
     }
 }
+
 
