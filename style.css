@@ -26,11 +26,11 @@
 .content {
     font-size: 14px;
 }
-
+/* 
 strong {
     display: block;
     margin-bottom: 5px;
-        }
+        } */
          .news-item {
             display: flex;
             align-items: center;
@@ -237,5 +237,6 @@ strong {
         padding: 2px 5px;
     }
 }
+
 
 
