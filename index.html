@@ -9,9 +9,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="script.js"></script>
 <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center;    /* Căn giữa theo chiều dọc */
+  min-height: 100vh;      /* Đảm bảo container chiếm toàn bộ chiều cao màn hình */
+}
+
+    </style>
   </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+    <div class="container">
+      <div class="notification">
+    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16" style="color: red;">
+  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+</svg></div>
+    <div class="content">
+        <strong>Thông báo quan trọng!</strong>
+        <p>Apex News sẽ ngừng hoạt động từ ngày 15/11/2025. Do đó bạn sẽ không thể truy cập bất kì dịch vụ nào từ Apex News. Xin lỗi vì sự bất tiện này. Xin trân trọng cảm ơn các bạn đã đồng hành cùng Apex News trong thời gian qua</p>
+    </div>
+     </div>
+    </div>
+    <!-- <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Apex Film</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +76,7 @@
         </div>
 
         </div>
-        </div>
+        </div> -->
 </body>
 </html>
+
