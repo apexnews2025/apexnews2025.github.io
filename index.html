@@ -33,6 +33,31 @@
     </div>
      </div>
     </div>
+        <div class="modal fade" id="captchaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="captchaModalLabel">Xác minh bảo mật</h5>
+                    <!-- Nút đóng mặc định của Bootstrap -->
+                    <!-- Ta thêm class 'disabled' ban đầu và attribute data-bs-dismiss="modal" -->
+                </div>
+                <div class="modal-body">
+                    <p>Vui lòng xác minh bạn không phải là robot để tiếp tục:</p>
+                    
+                    <!-- Vị trí đặt Cloudflare Turnstile Widget -->
+                    <!-- callback function 'onCaptchaVerified' sẽ được gọi khi xác minh thành công -->
+                    <div class="cf-turnstile" 
+                         data-sitekey="YOUR_TURNSTILE_SITE_KEY" 
+                         data-callback="onCaptchaVerified">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- Nút "Đồng ý" hoặc "Tiếp tục" -->
+                    <button type="button" class="btn btn-primary disabled" id="continueButton" data-bs-dismiss="modal">Tiếp tục</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Apex Film</a>
@@ -84,8 +109,42 @@
   async
   defer
 ></script>
+        <script>
+        // Lấy tham chiếu đến các phần tử DOM
+        const closeModalButton = document.getElementById('closeModalButton');
+        const continueButton = document.getElementById('continueButton');
+        const captchaModalElement = document.getElementById('captchaModal');
+
+        // 1. Hàm Callback được Cloudflare gọi khi xác minh thành công
+        // Hàm này PHẢI có sẵn trong phạm vi global scope (window)
+        window.onCaptchaVerified = function(token) {
+            console.log("CAPTCHA đã được xác minh thành công! Token:", token);
+            
+            // Bật nút đóng modal (loại bỏ class disabled và thuộc tính aria-disabled)
+            closeModalButton.classList.remove('disabled');
+            closeModalButton.removeAttribute('aria-disabled');
+
+            // Bật nút "Tiếp tục" ở footer (tùy chọn)
+            continueButton.classList.remove('disabled');
+            continueButton.removeAttribute('aria-disabled');
+            
+            // Nếu bạn muốn tự động đóng modal ngay sau khi xác minh:
+            // let modal = bootstrap.Modal.getInstance(captchaModalElement);
+            // modal.hide();
+        };
+
+        // 2. Tự động hiển thị modal khi trang web tải xong
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Khởi tạo đối tượng Modal của Bootstrap
+            let myModal = new bootstrap.Modal(captchaModalElement);
+            // Hiển thị modal
+            myModal.show();
+        });
+
+    </script>
 </body>
 </html>
+
 
 
 
