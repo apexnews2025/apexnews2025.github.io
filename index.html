@@ -48,10 +48,10 @@
                     <!-- callback function 'onCaptchaVerified' sẽ được gọi khi xác minh thành công -->
                     <div class="cf-turnstile" data-sitekey="0x4AAAAAACC1O3tDsPy-QzVZ" data-callback="onCaptchaVerified"></div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <!-- Nút "Đồng ý" hoặc "Tiếp tục" -->
                     <button type="button" class="btn btn-primary disabled" id="continueButton" data-bs-dismiss="modal">Tiếp tục</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -117,12 +117,12 @@
             // closeModalButton.removeAttribute('aria-disabled');
 
             // Bật nút "Tiếp tục" ở footer (tùy chọn)
-            continueButton.classList.remove('disabled');
-            continueButton.removeAttribute('aria-disabled');
+            // continueButton.classList.remove('disabled');
+            // continueButton.removeAttribute('aria-disabled');
             
             // Nếu bạn muốn tự động đóng modal ngay sau khi xác minh:
-            // let modal = bootstrap.Modal.getInstance(captchaModalElement);
-            // modal.hide();
+            let modal = bootstrap.Modal.getInstance(captchaModalElement);
+            modal.hide();
         };
 
         // 2. Tự động hiển thị modal khi trang web tải xong
@@ -141,6 +141,7 @@
 ></script>
 </body>
 </html>
+
 
 
 
