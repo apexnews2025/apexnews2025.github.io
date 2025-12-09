@@ -92,7 +92,7 @@
 
             // Kiểm tra nếu người dùng chưa nhập đầy đủ thông tin
             if (!nameInput || !dobInput) {
-                errorDiv.textContent = 'Vui lòng nhập đầy đủ tên và ngày sinh!';
+                errorDiv.innerHTML = '<br><center>Vui lòng nhập đầy đủ tên và ngày sinh!</center>';
                 return;
             }
 
@@ -124,7 +124,7 @@
         <strong>Kết quả:</strong> <strong style="color: red;">${candidate.result}</strong>
                 `;
             } else {
-                errorDiv.textContent = 'Không tìm thấy thí sinh hoặc sai thông tin!';
+                errorDiv.innerHTML = '<br><center>Không tìm thấy thí sinh hoặc sai thông tin!</center>';
             }
         }
     </script>
