@@ -70,7 +70,7 @@
     <script>
         // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
         const candidates = [
-        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", password:"TIO-1659@@", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
+        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
         ];
 
         // Hàm chuyển đổi định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
@@ -114,7 +114,8 @@
         <strong>Trường:</strong> ${candidate.school}<br>
         <strong>Lớp:</strong> ${candidate.grade}<br>
         <strong>Vòng thi:</strong> ${candidate.round}<br>
-        <strong>SBD(Tên đăng nhập):</strong> ${candidate.id}<br>
+        <strong>SBD:</strong> ${candidate.id}<br>
+        <strong>Tên đăng nhập:<strong> ${candidate.username}<br>
         <strong>Mật khẩu:</strong> ${candidate.password}<br>
         <hr>
         <strong>Điểm thi</strong><br>
