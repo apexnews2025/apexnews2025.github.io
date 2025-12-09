@@ -70,7 +70,7 @@
     <script>
         // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
         const candidates = [
-        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
+        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", address: "19A/35/261 Trần Nguyên Hãn, Lê Chân, thành phố Hải Phòng", time: "Sáng từ 8h30 -> 10h", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
         ];
 
         // Hàm chuyển đổi định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
@@ -108,7 +108,7 @@
             if (candidate) {
                 resultDiv.innerHTML = `
                 <br>
-                <h6>Thông tin thí sinh</h6>
+                <h6>Thông tin thí sinh và địa điểm</h6>
                 <strong>Họ và tên:</strong> ${candidate.name}<br>
         <strong>Ngày sinh: </strong> ${candidate.dob}<br>
         <strong>Trường:</strong> ${candidate.school}<br>
@@ -117,6 +117,8 @@
         <strong>SBD:</strong> ${candidate.id}<br>
         <strong>Tên đăng nhập:</strong> ${candidate.username}<br>
         <strong>Mật khẩu:</strong> ${candidate.password}<br>
+        <strong>Địa điểm thi:</strong> ${candidate.address}<br>
+        <strong>Thời gian:</strong> ${candidate.time}
         <hr>
         <strong>Điểm thi</strong><br>
         <strong>Điểm bài nghe:</strong> <strong style="color: red;">${candidate.listening}</strong><br>
