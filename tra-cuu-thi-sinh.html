@@ -212,24 +212,22 @@
         <input type="date" id="dob" required>
         <button onclick="search()">Tra cứu</button>
     </div>
-
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Thông báo / Kết quả tra cứu</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="result" class="result"></div>
-                    <h1 id="error" class="error"></h1>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
+<div class="modal fade" id="tra-cuu-thi-sinh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+      </div>
+      <div class="modal-body">
+        <div id="result" class="result"></div>
+        <h1 id="error" class="error"></h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+      </div>
     </div>
+  </div>
+</div>
     
     <script>
         // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
@@ -251,7 +249,7 @@
             const errorDiv = document.getElementById('error');
 
             // Lấy đối tượng Modal của Bootstrap
-            const searchModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+            const searchModal = new bootstrap.Modal(document.getElementById('tra-cuu-thi-sinh'));
 
             // Reset lại thông báo lỗi và kết quả
             resultDiv.innerHTML = '';
