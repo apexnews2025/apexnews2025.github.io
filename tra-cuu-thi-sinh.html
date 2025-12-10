@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +70,7 @@
     <script>
         // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
         const candidates = [
-        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", address: "19A/35/261 Trần Nguyên Hãn, Lê Chân, thành phố Hải Phòng", time: "Sáng từ 8h30 -> 10h", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
+        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", address: "19A/35/261 Trần Nguyên Hãn, Lê Chân, thành phố Hải Phòng", time: "Thứ Bảy (tức ngày 13/12/2025), sáng từ 8h30 -> 10h", link: "Chưa có thông tin", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin" },
         ];
 
         // Hàm chuyển đổi định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
@@ -92,7 +92,7 @@
 
             // Kiểm tra nếu người dùng chưa nhập đầy đủ thông tin
             if (!nameInput || !dobInput) {
-                errorDiv.innerHTML = '<br><center>Vui lòng nhập đầy đủ tên và ngày sinh!</center>';
+                errorDiv.innerHTML = '<br><center><h5>Vui lòng nhập đầy đủ tên và ngày sinh!</h5></center>';
                 return;
             }
 
@@ -110,25 +110,208 @@
                 <br>
                 <h6>Thông tin thí sinh và địa điểm</h6>
                 <strong>Họ và tên:</strong> ${candidate.name}<br>
-        <strong>Ngày sinh: </strong> ${candidate.dob}<br>
-        <strong>Trường:</strong> ${candidate.school}<br>
-        <strong>Lớp:</strong> ${candidate.grade}<br>
-        <strong>Vòng thi:</strong> ${candidate.round}<br>
-        <strong>SBD:</strong> ${candidate.id}<br>
-        <strong>Tên đăng nhập:</strong> ${candidate.username}<br>
-        <strong>Mật khẩu:</strong> ${candidate.password}<br>
-        <strong>Địa điểm thi:</strong> ${candidate.address}<br>
-        <strong>Thời gian:</strong> ${candidate.time}
-        <hr>
-        <strong>Điểm thi</strong><br>
-        <strong>Điểm bài nghe:</strong> <strong style="color: red;">${candidate.listening}</strong><br>
-        <strong>Điểm bài đọc hiểu:</strong> <strong style="color: red;">${candidate.writing}</strong><br>
-        <strong>Kết quả:</strong> <strong style="color: red;">${candidate.result}</strong>
+                <strong>Ngày sinh: </strong> ${candidate.dob}<br>
+                <strong>Trường:</strong> ${candidate.school}<br>
+                <strong>Lớp:</strong> ${candidate.grade}<br>
+                <strong>Vòng thi:</strong> ${candidate.round}<br>
+                <strong>SBD:</strong> ${candidate.id}<br>
+                <strong>Tên đăng nhập:</strong> ${candidate.username}<br>
+                <strong>Mật khẩu:</strong> ${candidate.password}<br>
+                <strong>Địa điểm thi:</strong> ${candidate.address}<br>
+                <strong>Thời gian:</strong> ${candidate.time}<br>
+                <strong>Link thi:</strong> ${candidate.link}
+                <hr>
+                <strong>Điểm thi</strong><br>
+                <strong>Điểm bài nghe:</strong> <strong style="color: red;">${candidate.listening}</strong><br>
+                <strong>Điểm bài đọc hiểu:</strong> <strong style="color: red;">${candidate.writing}</strong><br>
+                <strong>Kết quả:</strong> <strong style="color: red;">${candidate.result}</strong>
                 `;
             } else {
-                errorDiv.innerHTML = '<br><center>Không tìm thấy thí sinh hoặc sai thông tin!</center>';
+                errorDiv.innerHTML = '<br><center><h5>Không tìm thấy thí sinh hoặc sai thông tin!</h5></center>';
             }
         }
+        
+        // Đoạn code mới thêm vào để kích hoạt hàm search() khi nhấn Enter
+        document.addEventListener('keydown', function(event) {
+            // Kiểm tra xem phím được nhấn có phải là 'Enter' hay không (tương thích cả keyCode cũ)
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                // Ngăn chặn hành vi mặc định của phím Enter (rất quan trọng để tránh gửi form)
+                event.preventDefault(); 
+                
+                // Gọi hàm tra cứu
+                search();
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu thí sinh | TIO</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* CSS cho form tra cứu */
+        .search-container {
+            width: 600px;
+            margin: 70px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        h2 {
+            text-align:center ;
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .search-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #007bff;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">TOPIK International Olympiads (TIO)</a>
+        </div>
+    </nav>
+    <div class="search-container">
+        <h2>Tra cứu tài khoản</h2>
+        <input type="text" id="name" placeholder="Nhập tên thí sinh" required>
+        <input type="date" id="dob" required>
+        <button onclick="search()">Tra cứu</button>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Thông báo / Kết quả tra cứu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="result" class="result"></div>
+                    <h1 id="error" class="error"></h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Danh sách thí sinh mẫu với định dạng ngày dd/mm/yyyy
+        const candidates = [
+        { name: "Nguyễn Nhật Nam", dob:"15/11/2015", school:"Tiểu học Nguyễn Văn Tố", grade: "5", round: "Vòng 1", id: "TIO-1659", username:"nhatnam1511@tio.com",password:"Nhatnam1511@TIO", address: "19A/35/261 Trần Nguyên Hãn, Lê Chân, thành phố Hải Phòng", time: "Thứ Bảy (tức ngày 13/12/2025), sáng từ 8h30 -> 10h", link: "Chưa có thông tin", listening: "Chưa có thông tin", writing: "Chưa có thông tin", result: "Chưa có thông tin"},
+        ];
+
+        // Hàm chuyển đổi định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
+        function formatDate(dateString) {
+            const dateParts = dateString.split("-");
+            return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+        }
+
+        // Hàm tra cứu thí sinh
+        function search() {
+            const nameInput = document.getElementById('name').value.trim().toLowerCase();
+            const dobInput = document.getElementById('dob').value;
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+
+            // Lấy đối tượng Modal của Bootstrap
+            const searchModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+
+            // Reset lại thông báo lỗi và kết quả
+            resultDiv.innerHTML = '';
+            errorDiv.innerHTML = '';
+
+            // Kiểm tra nếu người dùng chưa nhập đầy đủ thông tin
+            if (!nameInput || !dobInput) {
+                errorDiv.innerHTML = '<center><h5>Vui lòng nhập đầy đủ tên và ngày sinh!</h5></center>';
+                searchModal.show(); // Hiển thị Modal để báo lỗi
+                return;
+            }
+
+            // Chuyển định dạng ngày từ yyyy-mm-dd sang dd/mm/yyyy
+            const formattedDob = formatDate(dobInput);
+
+            // Tìm kiếm thí sinh dựa vào tên và ngày sinh
+            const candidate = candidates.find(candidate =>
+                candidate.name.toLowerCase() === nameInput && candidate.dob === formattedDob
+            );
+
+            // Hiển thị kết quả nếu tìm thấy thí sinh
+            if (candidate) {
+                resultDiv.innerHTML = `
+                <h6>Thông tin thí sinh và địa điểm</h6>
+                <strong>Họ và tên:</strong> ${candidate.name}<br>
+                <strong>Ngày sinh: </strong> ${candidate.dob}<br>
+                <strong>Trường:</strong> ${candidate.school}<br>
+                <strong>Lớp:</strong> ${candidate.grade}<br>
+                <strong>Vòng thi:</strong> ${candidate.round}<br>
+                <strong>SBD:</strong> ${candidate.id}<br>
+                <strong>Tên đăng nhập:</strong> ${candidate.username}<br>
+                <strong>Mật khẩu:</strong> ${candidate.password}<br>
+                <strong>Địa điểm thi:</strong> ${candidate.address}<br>
+                <strong>Thời gian:</strong> ${candidate.time}<br>
+                <strong>Link thi:</strong> ${candidate.link}
+                <hr>
+                <strong>Điểm thi</strong><br>
+                <strong>Điểm bài nghe:</strong> <strong style="color: red;">${candidate.listening}</strong><br>
+                <strong>Điểm bài đọc hiểu:</strong> <strong style="color: red;">${candidate.writing}</strong><br>
+                <strong>Kết quả:</strong> <strong style="color: red;">${candidate.result}</strong>
+                `;
+            } else {
+                errorDiv.innerHTML = '<center><h5>Không tìm thấy thí sinh hoặc sai thông tin!</h5></center>';
+            }
+
+            // Hiển thị Modal sau khi đã có kết quả/lỗi được điền
+            searchModal.show();
+        }
+        
+        // Đoạn code **mới thêm** vào để kích hoạt hàm search() khi nhấn Enter
+        document.addEventListener('keydown', function(event) {
+            // Kiểm tra xem phím được nhấn có phải là 'Enter' hay không
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                // Ngăn chặn hành vi mặc định của phím Enter (rất quan trọng)
+                event.preventDefault(); 
+                
+                // Gọi hàm tra cứu, hàm này đã được chỉnh sửa để tự động mở Modal
+                search();
+            }
+        });
     </script>
 </body>
 </html>
