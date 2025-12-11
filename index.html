@@ -6,26 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Film</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="script.js"></script>
-<link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
     <style>
-        .container {
-  display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center;    /* Căn giữa theo chiều dọc */
-  min-height: 100vh;      /* Đảm bảo container chiếm toàn bộ chiều cao màn hình */
-}
-
-.award-item {
+        .award-item {
             display: flex;
             align-items: center;
             padding: 15px;
             border-bottom: 1px solid #eee;
-            max-width: 800px;
             margin: 0 auto;
             font-family: Arial, sans-serif;
+            max-width: 100%; /* Đảm bảo item chiếm hết chiều rộng */
         }
 
         .logo-container {
@@ -47,30 +43,26 @@
             flex-grow: 1;
         }
 
-        /* Lớp bọc cho tiêu đề để kiểm soát khoảng cách */
         .title-wrapper {
             margin-top: 0; 
             margin-bottom: 5px;
             line-height: 1.4;
-            font-size: 16px; /* Kích thước font của h2 */
+            font-size: 16px;
             font-weight: bold;
         }
 
         .title {
-            /* THẺ <a> */
-            font-size: inherit; /* Kế thừa font size từ title-wrapper */
-            font-weight: inherit; /* Kế thừa font weight từ title-wrapper */
-            color: #28a745; /* Mặc định: Xanh lá cây */
-            text-decoration: none; /* Bỏ gạch chân */
-            transition: color 0.2s ease-in-out; /* Hiệu ứng chuyển màu */
-            display: inline-block; /* Quan trọng để chuyển đổi hover hoạt động tốt hơn */
+            font-size: inherit;
+            font-weight: inherit;
+            color: #28a745; 
+            text-decoration: none; 
+            transition: color 0.2s ease-in-out;
+            display: inline-block;
         }
 
-        /* HIỆU ỨNG HOVER */
         .title:hover {
-            color: #007bff; /* Khi di chuột: Xanh dương */
-            /* Nếu bạn muốn màu đen: color: #000; */
-            text-decoration: underline; /* Gạch chân khi hover (tùy chọn) */
+            color: #007bff;
+            text-decoration: underline;
         }
 
         .timestamp {
@@ -78,132 +70,112 @@
             color: #333;
             margin: 0;
         }
-    </style>
-  </head>
-<body>
-    <div class="container">
-      <!-- <div class="notification">
-    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16" style="color: red;">
-  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-</svg></div>
-    <div class="content">
-        <strong>Thông báo quan trọng!</strong>
-        <p>Apex News sẽ ngừng hoạt động từ ngày 15/11/2025. Do đó bạn sẽ không thể truy cập bất kì dịch vụ nào từ Apex News. Xin lỗi vì sự bất tiện này. Xin trân trọng cảm ơn các bạn đã đồng hành cùng Apex News trong thời gian qua</p>
         
-    </div>
-     </div>
-    </div> -->
-        <!-- <div class="modal fade" id="captchaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="captchaModalLabel">Xác minh bảo mật</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Vui lòng xác minh bạn không phải là robot để tiếp tục:</p>
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACC1O3tDsPy-QzVZ" data-callback="onCaptchaVerified"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary disabled" id="continueButton" data-bs-dismiss="modal">Tiếp tục</button>
-                </div>
+        /* CSS bổ sung để cố định Navbar không thu gọn */
+        .navbar-expand .navbar-collapse {
+            display: flex!important;
+        }
+        .navbar-expand .navbar-toggler {
+            display: none;
+        }
+        
+        /* Căn chỉnh lại ô tìm kiếm cho gọn */
+        .search-container {
+            width: 250px; /* Cố định chiều rộng cho ô tìm kiếm trên desktop */
+        }
+        @media (max-width: 991.98px) {
+            .search-container {
+                width: 100%; /* Trên màn hình nhỏ, ô tìm kiếm full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Apex Film</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tra-cuu-thi-sinh">Đọc truyện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ve-chung-toi">Về chúng tôi</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex search-container" role="search">
+                    <div class="dropdown w-100">
+                        <input type="text" class="form-control w-100" id="searchInput" placeholder="Tìm kiếm..." aria-expanded="false">
+                        <ul class="dropdown-menu" aria-labelledby="searchInput">
+                        </ul>
+                    </div>
+                </form>
+                
             </div>
         </div>
-    </div> -->
-    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Apex Film</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Trang chủ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/xem-phim">Xem phim</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/doc-truyen">Đọc truyện</a>
-        </li>
-        <li class="nav-item">
-            <a href="/thong-tin" class="nav-link">Thông tin</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <div class="dropdown">
-  <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm..." aria-expanded="false">
-  <ul class="dropdown-menu" aria-labelledby="searchInput">
-    </ul>
-</div>
-      </form>
-    </div>
-  </div>
-</nav>
+    </nav>
 
-<div class="container mt-4">
-  <h3>Nổi bật</h3>
-  <hr>
-<div class="award-item">
-    <div class="logo-container">
-        <div class="logo-placeholder">Logo</div>
+    <div class="container mt-4">
+        <h3>Nổi bật</h3>
+        <hr>
+        
+        <div class="award-item">
+            <div class="logo-container">
+                <div class="logo-placeholder">Logo</div>
+            </div>
+            <div class="content-container">
+                <h2 class="title-wrapper">
+                    <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
+                </h2>
+                <p class="timestamp">8:45 PM 11/12/2025</p>
+            </div>
+        </div>
     </div>
-    <div class="content-container">
-        <h2 class="title-wrapper">
-            <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
-        </h2>
-        <p class="timestamp">8:20 PM 11/12/2025</p>
-    </div>
-</div>
-            <script>
+    
+    <script>
         // Lấy tham chiếu đến các phần tử DOM
-        const closeModalButton = document.getElementById('closeModalButton');
         const continueButton = document.getElementById('continueButton');
         const captchaModalElement = document.getElementById('captchaModal');
 
         // 1. Hàm Callback được Cloudflare gọi khi xác minh thành công
-        // Hàm này PHẢI có sẵn trong phạm vi global scope (window)
         window.onCaptchaVerified = function(token) {
             console.log("CAPTCHA đã được xác minh thành công! Token:", token);
-            
-            // Bật nút đóng modal (loại bỏ class disabled và thuộc tính aria-disabled)
-            // closeModalButton.class.remove('disabled');
-            // closeModalButton.removeAttribute('aria-disabled');
-
-            // Bật nút "Tiếp tục" ở footer (tùy chọn)
-            // continueButton.classList.remove('disabled');
-            // continueButton.removeAttribute('aria-disabled');
-            
+            // Kích hoạt nút Tiếp tục (nếu bạn sử dụng modal)
+            if (continueButton) {
+                 continueButton.classList.remove('disabled');
+            }
             // Nếu bạn muốn tự động đóng modal ngay sau khi xác minh:
             let modal = bootstrap.Modal.getInstance(captchaModalElement);
-            modal.hide();
+            if (modal) {
+                modal.hide();
+            }
         };
 
         // 2. Tự động hiển thị modal khi trang web tải xong
+        // (Phần này đang được bình luận trong HTML, tôi giữ lại hàm nhưng không kích hoạt vì modal không có trong HTML hiện tại)
+        /*
         document.addEventListener('DOMContentLoaded', (event) => {
             // Khởi tạo đối tượng Modal của Bootstrap
             let myModal = new bootstrap.Modal(captchaModalElement);
             // Hiển thị modal
             myModal.show();
         });
-
+        */
     </script>
     <script
-  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-  async
-  defer
-></script>
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+    ></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
