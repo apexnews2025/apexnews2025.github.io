@@ -18,11 +18,71 @@
   min-height: 100vh;      /* Đảm bảo container chiếm toàn bộ chiều cao màn hình */
 }
 
+.award-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-container {
+            flex-grow: 1;
+        }
+
+        /* Lớp bọc cho tiêu đề để kiểm soát khoảng cách */
+        .title-wrapper {
+            margin-top: 0; 
+            margin-bottom: 5px;
+            line-height: 1.4;
+            font-size: 16px; /* Kích thước font của h2 */
+            font-weight: bold;
+        }
+
+        .title {
+            /* THẺ <a> */
+            font-size: inherit; /* Kế thừa font size từ title-wrapper */
+            font-weight: inherit; /* Kế thừa font weight từ title-wrapper */
+            color: #28a745; /* Mặc định: Xanh lá cây */
+            text-decoration: none; /* Bỏ gạch chân */
+            transition: color 0.2s ease-in-out; /* Hiệu ứng chuyển màu */
+            display: inline-block; /* Quan trọng để chuyển đổi hover hoạt động tốt hơn */
+        }
+
+        /* HIỆU ỨNG HOVER */
+        .title:hover {
+            color: #007bff; /* Khi di chuột: Xanh dương */
+            /* Nếu bạn muốn màu đen: color: #000; */
+            text-decoration: underline; /* Gạch chân khi hover (tùy chọn) */
+        }
+
+        .timestamp {
+            font-size: 14px;
+            color: #333;
+            margin: 0;
+        }
     </style>
   </head>
 <body>
     <div class="container">
-      <div class="notification">
+      <!-- <div class="notification">
     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16" style="color: red;">
   <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
 </svg></div>
@@ -32,29 +92,24 @@
         
     </div>
      </div>
-    </div>
-        <div class="modal fade" id="captchaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
+    </div> -->
+        <!-- <div class="modal fade" id="captchaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="captchaModalLabel">Xác minh bảo mật</h5>
-                    <!-- Nút đóng mặc định của Bootstrap -->
-                    <!-- Ta thêm class 'disabled' ban đầu và attribute data-bs-dismiss="modal" -->
                 </div>
                 <div class="modal-body">
                     <p>Vui lòng xác minh bạn không phải là robot để tiếp tục:</p>
-                    
-                    <!-- Vị trí đặt Cloudflare Turnstile Widget -->
-                    <!-- callback function 'onCaptchaVerified' sẽ được gọi khi xác minh thành công -->
                     <div class="cf-turnstile" data-sitekey="0x4AAAAAACC1O3tDsPy-QzVZ" data-callback="onCaptchaVerified"></div>
                 </div>
-                <!-- <div class="modal-footer">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-primary disabled" id="continueButton" data-bs-dismiss="modal">Tiếp tục</button>
-                </div> -->
+                </div>
             </div>
         </div>
-    </div>
-    <!-- <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+    </div> -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Apex Film</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,17 +144,17 @@
 <div class="container mt-4">
   <h3>Nổi bật</h3>
   <hr>
-  <div class="movie-grid-container" id="movieGridContainer">
-        <div class="movie-item">
-            <a href="/xem-phim/lat-nguoc-the-co.html">
-                <img src="https://i.ytimg.com/vi/QP1mw6owDc4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBPZT1VXcniyp_ne1YDPn8o9YtkyQ" alt="...">
-                <span class="full-tag">Nổi bật</span>
-                <p class="movie-title">Lật Ngược Thế Cờ Full</p>
-            </a>
-        </div>
-
-        </div>
-        </div> -->
+<div class="award-item">
+    <div class="logo-container">
+        <div class="logo-placeholder">Logo</div>
+    </div>
+    <div class="content-container">
+        <h2 class="title-wrapper">
+            <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
+        </h2>
+        <p class="timestamp">8:20 PM 11/12/2025</p>
+    </div>
+</div>
             <script>
         // Lấy tham chiếu đến các phần tử DOM
         const closeModalButton = document.getElementById('closeModalButton');
@@ -140,6 +195,7 @@
 ></script>
 </body>
 </html>
+
 
 
 
