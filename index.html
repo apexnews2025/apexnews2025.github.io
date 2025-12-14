@@ -14,79 +14,35 @@
     <script src="script.js"></script>
     
     <style>
-        .award-item {
+.news-item {
             display: flex;
             align-items: center;
+            border-bottom: 1px solid #ddd;
             padding: 15px;
-            border-bottom: 1px solid #eee;
-            margin: 0 auto;
-            font-family: Arial, sans-serif;
-            max-width: 100%; /* Đảm bảo item chiếm hết chiều rộng */
         }
-
-        .logo-container {
-            flex-shrink: 0;
-            margin-right: 20px;
-        }
-
-        .logo-placeholder {
+        .news-item img {
             width: 80px;
             height: 80px;
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
         }
-
-        .content-container {
-            flex-grow: 1;
+        .news-content {
+            flex: 1;
         }
-
-        .title-wrapper {
-            margin-top: 0; 
-            margin-bottom: 5px;
-            line-height: 1.4;
-            font-size: 16px;
+        .news-title {
+            font-size: 20px;
             font-weight: bold;
-        }
-
-        .title {
-            font-size: inherit;
-            font-weight: inherit;
-            color: #28a745; 
-            text-decoration: none; 
-            transition: color 0.2s ease-in-out;
-            display: inline-block;
-        }
-
-        .title:hover {
-            color: #007bff;
-            text-decoration: underline;
-        }
-
-        .timestamp {
-            font-size: 14px;
             color: #333;
-            margin: 0;
+            margin-bottom: 5px;
+            text-decoration: none;
         }
-        
-        /* CSS bổ sung để cố định Navbar không thu gọn */
-        .navbar-expand .navbar-collapse {
-            display: flex!important;
+        .news-title:hover {
+          color: green; /* Đổi màu chữ thành đỏ khi di chuột vào */
         }
-        .navbar-expand .navbar-toggler {
-            display: none;
-        }
-        
-        /* Căn chỉnh lại ô tìm kiếm cho gọn */
-        .search-container {
-            width: 250px; /* Cố định chiều rộng cho ô tìm kiếm trên desktop */
-        }
-        @media (max-width: 991.98px) {
-            .search-container {
-                width: 100%; /* Trên màn hình nhỏ, ô tìm kiếm full width */
-            }
+        .news-time {
+            font-size: 12px;
+            color: gray;
         }
     </style>
 </head>
@@ -119,17 +75,11 @@
     <div class="container mt-4">
         <h3>Nổi bật</h3>
         <hr>
-        
-        <div class="award-item">
-            <div class="logo-container">
-                <div class="logo-placeholder">Logo</div>
-            </div>
-            <div class="content-container">
-                <h2 class="title-wrapper">
-                    <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
-                </h2>
-                <p class="timestamp">9:00 PM 11/12/2025</p>
-            </div>
+             <div class="news-item">
+        <img src="" alt="" width="150px" class="me-3">
+        <div class="news-content">
+            <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="news-title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
+            <div class="news-time">9:00 PM 11/12/2025</div>
         </div>
     </div>
     
@@ -170,6 +120,7 @@
     ></script>
 </body>
 </html>
+
 
 
 
