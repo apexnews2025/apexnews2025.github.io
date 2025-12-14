@@ -1,14 +1,24 @@
-// Dữ liệu người dùng mẫu (thường sẽ từ backend)
+// Dữ liệu người dùng mẫu
 const users = {
     'nhatnam-0888363955@tio.com': { password: 'Nhatnam1511@', name: 'Nguyễn Nhật Nam', room: 'Phòng thi số 39' },
-    'maianhtien': { password: 'maianhtien', name: 'Mai Anh Tiến', room: 'No data' }
+    'maianhtien': { password: 'maianhtien', name: 'Mai Anh Tiến', room: 'No data' },
 };
+
+// Hàm xóa sạch mọi dữ liệu người dùng khỏi localStorage
+function clearUserData() {
+    localStorage.removeItem('currentUser');
+    // Nếu bạn có lưu thêm các dữ liệu khác sau này (ví dụ: 'userSettings'), hãy xóa ở đây
+    // localStorage.removeItem('userSettings'); 
+}
 
 // Hàm đăng nhập
 function login(username, password) {
+    // NGAY LẬP TỨC xóa dữ liệu người dùng cũ trước khi xử lý đăng nhập mới
+    clearUserData(); 
+    
     const user = users[username];
     if (user && user.password === password) {
-        // Lưu thông tin người dùng vào localStorage
+        // Lưu thông tin người dùng MỚI vào localStorage
         localStorage.setItem('currentUser', JSON.stringify({ 
             username: username, 
             name: user.name, 
@@ -21,19 +31,28 @@ function login(username, password) {
     return false;
 }
 
-// Hàm kiểm tra trạng thái đăng nhập trên các trang
+// Hàm đăng xuất (chỉ cần gọi lại hàm xóa dữ liệu)
+function logout() {
+    clearUserData();
+    // Chuyển hướng về trang đăng nhập
+    window.location.href = 'login.html';
+    // Ngăn người dùng quay lại trang trước
+    setTimeout(() => {
+        window.history.replaceState(null, '', 'login.html');
+    }, 0);
+}
+
+// Hàm kiểm tra trạng thái đăng nhập trên các trang yêu cầu bảo mật
 function checkLoginState() {
     const currentUser = localStorage.getItem('currentUser');
-    // Lấy tên tệp hiện tại (ví dụ: "phong-thi.html" hoặc "dashboard.html")
     const currentPage = window.location.pathname.split('/').pop(); 
     
-    // Nếu không có người dùng đăng nhập và không ở trang index, chuyển hướng về index
     if (!currentUser && currentPage !== 'login.html') {
         window.location.href = 'login.html';
     }
 }
 
-// Hàm cập nhật giao diện dashboard (navbar)
+// Hàm cập nhật giao diện dashboard
 function updateDashboardUI() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser) {
@@ -41,50 +60,33 @@ function updateDashboardUI() {
         const examRoomNavItemEl = document.getElementById('examRoomNavItem');
 
         if (welcomeMessageEl) {
-            welcomeMessageEl.textContent = `Xin chào, ${currentUser.name}! (Phòng: ${currentUser.room})`;
+            welcomeMessageEl.textContent = `Xin chào, ${currentUser.name}!`;
         }
         
         if (examRoomNavItemEl) {
             examRoomNavItemEl.style.display = 'block';
-            // Có thể thêm logic để dẫn đến phòng thi cụ thể nếu cần
         }
     }
 }
 
-// Hàm đăng xuất
-function logout() {
-    localStorage.clear('currentUser');
-    // Chuyển hướng về trang đăng nhập
-    window.location.href = 'login.html';
-    // Ngăn người dùng quay lại trang trước bằng cách xóa lịch sử
-    setTimeout(() => {
-        window.history.replaceState(null, '', 'login.html');
-    }, 0);
-}
+// --- Logic chạy khi script auth.js được tải ---
 
-// Gắn sự kiện cho form đăng nhập
+// 1. Kiểm tra trạng thái đăng nhập ngay lập tức
+checkLoginState();
+
+// 2. Gắn sự kiện cho form đăng nhập (chỉ chạy nếu đang ở trang index.html)
 if (window.location.pathname.endsWith('/login.html')) {
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const errorMessage = document.getElementById('errorMessage');
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
 
-        if (login(username, password)) {
-            // Đăng nhập thành công, chuyển hướng đã được xử lý trong hàm login
-        } else {
-            errorMessage.textContent = 'Sai tên đăng nhập hoặc mật khẩu.';
-            errorMessage.style.display = 'block';
-        }
+            if (!login(username, password)) {
+                errorMessage.textContent = 'Sai tên đăng nhập hoặc mật khẩu.';
+                errorMessage.style.display = 'block';
+            }
+        });
     });
-}
-
-// Gắn sự kiện cho nút đăng xuất (nếu có trên trang hiện tại)
-const logoutButton = document.getElementById('logoutButton');
-if (logoutButton) {
-    logoutButton.addEventListener('click', logout);
-}
-// Kiểm tra trạng thái đăng nhập ngay khi tải script trên các trang (trừ index.html)
-if (!window.location.pathname.endsWith('/login.html')) {
-    checkLoginState();
 }
