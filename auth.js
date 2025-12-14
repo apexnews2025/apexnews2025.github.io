@@ -1,7 +1,7 @@
 // Dữ liệu người dùng mẫu (thường sẽ từ backend)
 const users = {
-    'user1': { password: 'pass1', name: 'Nguyễn Văn A', room: 'P101' },
-    'user2': { password: 'pass2', name: 'Trần Thị B', room: 'P202' }
+    'nhatnam-0888363955@tio.com': { password: 'Nhatnam1511@', name: 'Nguyễn Nhật Nam', room: 'Phòng thi số 39' },
+    'maianhtien': { password: 'maianhtien', name: 'Mai Anh Tiến', room: 'No data' }
 };
 
 // Hàm đăng nhập
