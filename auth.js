@@ -53,7 +53,7 @@ function updateDashboardUI() {
 
 // Hàm đăng xuất
 function logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.clear('currentUser');
     // Chuyển hướng về trang đăng nhập
     window.location.href = 'login.html';
     // Ngăn người dùng quay lại trang trước bằng cách xóa lịch sử
