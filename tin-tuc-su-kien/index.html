@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://challenges.cloudflare.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức & Sự kiện - VieConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    
+    <style>
+.news-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .news-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .news-title:hover {
+          color: green; /* Đổi màu chữ thành đỏ khi di chuột vào */
+        }
+        .news-time {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">VieConnect</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tin-tuc-su-kien">Tin tức & Sự kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tra-cuu-thi-sinh">Tra cứu thí sinh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ve-chung-toi">Về chúng tôi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+             <div class="news-item">
+        <img src="" alt="" width="150px" class="me-3">
+        <div class="news-content">
+            <a href="./chinh-thuc-mo-cong-dang-ki-ki-thi-topik-international-olympiads-tio-2025.html" class="news-title">CHÍNH THỨC MỞ CỔNG ĐĂNG KÝ KÌ THI TOPIK INTERNATIONAL OLYMPIADS (TIO) 2025</a>
+            <div class="news-time">9:00 PM 11/12/2025</div>
+        </div>
+    </div>
+    
+    <script>
+        // Lấy tham chiếu đến các phần tử DOM
+        const continueButton = document.getElementById('continueButton');
+        const captchaModalElement = document.getElementById('captchaModal');
+
+        // 1. Hàm Callback được Cloudflare gọi khi xác minh thành công
+        window.onCaptchaVerified = function(token) {
+            console.log("CAPTCHA đã được xác minh thành công! Token:", token);
+            // Kích hoạt nút Tiếp tục (nếu bạn sử dụng modal)
+            if (continueButton) {
+                 continueButton.classList.remove('disabled');
+            }
+            // Nếu bạn muốn tự động đóng modal ngay sau khi xác minh:
+            let modal = bootstrap.Modal.getInstance(captchaModalElement);
+            if (modal) {
+                modal.hide();
+            }
+        };
+
+        // 2. Tự động hiển thị modal khi trang web tải xong
+        // (Phần này đang được bình luận trong HTML, tôi giữ lại hàm nhưng không kích hoạt vì modal không có trong HTML hiện tại)
+        /*
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Khởi tạo đối tượng Modal của Bootstrap
+            let myModal = new bootstrap.Modal(captchaModalElement);
+            // Hiển thị modal
+            myModal.show();
+        });
+        */
+    </script>
+    <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+    ></script>
+</body>
+</html>
+
+
+
