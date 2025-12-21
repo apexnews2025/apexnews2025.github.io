@@ -80,73 +80,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-        Plyr.setup();
-    });
+function killCopy(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function (“return false”)
+if (window.sidebar){
+document.onmousedown=killCopy
+document.onclick=reEnable
+}
 
-    document.addEventListener('DOMContentLoaded', function() {
-            const body = document.getElementById('myBody');
-            const customContextMenu = document.getElementById('custom-context-menu');
+window.onload = function() {
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        }, false);
+        document.addEventListener("keydown", function(e) {
+            //document.onkeydown = function(e) {
+            // "I" key
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                disabledEvent(e);
+            }
+            // "J" key
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                disabledEvent(e);
+            }
+            // "S" key + macOS
+            if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                disabledEvent(e);
+            }
+            // "U" key
+            if (e.ctrlKey && e.keyCode == 85) {
+                disabledEvent(e);
+            }
+            // "F12" key
+            if (event.keyCode == 123) {
+                disabledEvent(e);
+            }
+        }, false);
+ 
+        function disabledEvent(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            } else if (window.event) {
+                window.event.cancelBubble = true;
+            }
+            e.preventDefault();
+            return false;
+        }
+    };
 
-            // Ngăn chặn menu chuột phải mặc định của trình duyệt và hiển thị menu tùy chỉnh
-            body.addEventListener('contextmenu', function(e) {
-                e.preventDefault(); // Ngăn chặn hành vi mặc định (menu chuột phải của trình duyệt)
-
-                // Vị trí của chuột
-                let mouseX = e.pageX;
-                let mouseY = e.pageY;
-
-                // Hiển thị menu
-                customContextMenu.style.display = 'block';
-
-                // Định vị menu
-                // Điều chỉnh vị trí để menu không bị tràn ra ngoài màn hình
-                // Lấy kích thước cửa sổ
-                let windowWidth = window.innerWidth;
-                let windowHeight = window.innerHeight;
-
-                // Lấy kích thước menu
-                let menuWidth = customContextMenu.offsetWidth;
-                let menuHeight = customContextMenu.offsetHeight;
-
-                // Đảm bảo menu không bị tràn sang phải
-                if (mouseX + menuWidth > windowWidth) {
-                    customContextMenu.style.left = (windowWidth - menuWidth - 10) + 'px'; // -10 để có khoảng cách lề
-                } else {
-                    customContextMenu.style.left = mouseX + 'px';
-                }
-
-                // Đảm bảo menu không bị tràn xuống dưới
-                if (mouseY + menuHeight > windowHeight) {
-                    customContextMenu.style.top = (windowHeight - menuHeight - 10) + 'px'; // -10 để có khoảng cách lề
-                } else {
-                    customContextMenu.style.top = mouseY + 'px';
-                }
-            });
-
-// Ẩn menu khi nhấp vào bất cứ đâu trên trang
-document.addEventListener('click', function(e) {
-    // Lấy phần tử được click
-    const clickedElement = e.target;
-
-    // Kiểm tra nếu click không phải là bên trong menu HOẶC click vào một thẻ <a> có class là menu-item
-    if (!customContextMenu.contains(clickedElement) || clickedElement.matches('.menu-item')) {
-        customContextMenu.style.display = 'none';
-    }
-});
-
-            // Ngăn chặn sao chép toàn bộ trang
-            document.addEventListener('copy', function(e) {
-                e.preventDefault(); // Ngăn chặn hành động sao chép
-                alert('Sao chép nội dung đã bị vô hiệu hóa!');
-            });
-
-            // Ngăn chặn các phím tắt sao chép (Ctrl+C, Cmd+C)
-            document.addEventListener('keydown', function(e) {
-                // Kiểm tra Ctrl/Cmd + C
-                if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
-                    e.preventDefault();
-                    alert('Sao chép nội dung đã bị vô hiệu hóa!');
-                }
-            });
-        });
