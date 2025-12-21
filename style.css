@@ -1,4 +1,12 @@
-  .dropdown {
+body{
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.dropdown {
       width: 300px; /* Điều chỉnh chiều rộng của thanh tìm kiếm */
     }
     .dropdown-menu {
@@ -237,6 +245,7 @@ strong {
         padding: 2px 5px;
     }
 }
+
 
 
 
