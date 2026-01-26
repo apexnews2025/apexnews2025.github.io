@@ -106,7 +106,6 @@
                 />
                 <h4 id="userName" class="card-title"></h4>
                 <div id="userGender" class="card-text"></div>
-                <div id="userAge" class="card-text"></div>
                 <p id="userEmail" class="card-text"></p>
 
                 <!-- Nút Đăng xuất Facebook và Google -->
@@ -158,8 +157,6 @@
           document.getElementById('profilePicture').src = userData.pictureUrl;
         document.getElementById('userGender').innerText =
             'Giới tính: ' + userData.gender;
-document.getElementById('userAge').innerText =
-            'Giới tính: ' + userData.age;
 
         } else {
           document.getElementById('loginArea').style.display = 'block';
@@ -201,7 +198,7 @@ document.getElementById('userAge').innerText =
               fetchFacebookUserData();
             }
           },
-          { scope: 'public_profile,email,user_gender,user_age_range' }
+          { scope: 'public_profile,email,user_gender' }
         );
       }
 
@@ -214,7 +211,6 @@ document.getElementById('userAge').innerText =
                 name: response.name,
                 email: response.email,
                 gender: response.gender,
-                age: response.age
                 pictureUrl: response.picture.data.url,
               };
               updateUI(true, userData);
