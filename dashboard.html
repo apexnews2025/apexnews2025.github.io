@@ -49,6 +49,7 @@
 </script>
 </head>
 <body>
+    
     <script src="auth.js"></script>
      <nav class="navbar navbar-expand sticky-top bg-body-tertiary">
         <div class="container-fluid">
@@ -72,24 +73,46 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../ve-chung-toi">Về chúng tôi</a>
                     </li>
-                    <li class="nav-item" id="examRoomNavItem">
-                        <a class="nav-link active" aria-current="page" href="dashboard.html">Phòng thi</a>
+                </ul>
+                <span class="navbar-text me-3" id="welcomeMessage">
+                </span>
+                
+            </div>
+        </div>
+    </nav>
+ <nav class="navbar navbar-expand sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard.html">Thông tin cá nhân</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../phong-thi.html">Phòng thi</a>
                     </li>
                 </ul>
                 <span class="navbar-text me-3" id="welcomeMessage">
                 </span>
-                <button class="btn btn-outline-danger" id="logoutButton">Đăng xuất</button>
+                
             </div>
         </div>
     </nav>
-
     <div class="container mt-5">
-        <h1>Phòng thi</h1>
+        <h1></h1>
+        <h1>Thông tin cá nhân</h1>
         <hr>
         <div class="card p-4">
             <p><strong>Họ và tên:</strong> <span id="userNameDisplay"></span></p>
-            <p><strong>Phòng thi của bạn:</strong> <br><br><a href="#" style="text-decoration: none; width: 200px; height: 200px; display: flex; justify-content: center; align-items: center; height: 200px;" id="userRoomDisplay" class="btn btn-outline-primary"></a></p>
-            <p>Vui lòng chuẩn bị giấy tờ tùy thân và làm theo hướng dẫn của giám thị.</p>
+            <p><strong>SBD:</strong> <span id="userSBDDisplay"></span></p>
+            <p><strong>Ngày sinh:</strong> <span id="userBirthdayDisplay"></span></p>
+            <p><strong>Lớp:</strong> <span id="userClassDisplay"></span></p>
+            <p><strong>Trường:</strong> <span id="userSchoolDisplay"></span></p>
+            <center style="color:red ;">(Nếu thí sinh phát hiện thông tin cá nhân bị sai, vui lòng liên hệ với BTC qua SĐT: 0988065911)</center><br>
+            <button class="btn btn-outline-danger" id="logoutButton">Đăng xuất</button>
         </div>
     </div>
     
@@ -103,7 +126,10 @@
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (currentUser) {
                 document.getElementById('userNameDisplay').textContent = currentUser.name;
-                document.getElementById('userRoomDisplay').textContent = currentUser.room;
+                document.getElementById('userSBDDisplay').textContent = currentUser.sbd;
+                document.getElementById('userBirthdayDisplay').textContent = currentUser.birthday;
+                document.getElementById('userClassDisplay').textContent = currentUser.class;
+                document.getElementById('userSchoolDisplay').textContent = currentUser.school;
                 
                 const welcomeMessageEl = document.getElementById('welcomeMessage');
                 if (welcomeMessageEl) {
@@ -114,3 +140,4 @@
     </script>
 </body>
 </html>
+
