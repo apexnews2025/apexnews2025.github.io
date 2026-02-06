@@ -87,7 +87,7 @@
             </div>
         </div>
     </nav>
-        <div class="container mt-5">
+<div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -97,12 +97,22 @@
                     <div class="card-body">
                         <form id="loginForm">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Tên đăng nhập</label>
-                                <input type="text" class="form-control" id="username" required>
+                          <label for="username" class="form-label">Tên đăng nhập</label>
+                          <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                            </svg></span>
+                      <input type="text" class="form-control" placeholder="Tên đăng nhập" aria-label="Username" aria-describedby="basic-addon1" id="username" required>
+                      </div>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Mật khẩu</label>
-                                <input type="password" class="form-control" id="password" required>
+                              <label for="password" class="form-label">Mật khẩu</label>
+                              <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+</svg></span>
+  <input type="password" class="form-control" placeholder="Mật khẩu" aria-label="Username" aria-describedby="basic-addon1" id="password" required>
+</div>
                             </div>
                             <div id="errorMessage" class="text-danger mt-3" style="display: none;"></div><br>
                             <button type="submit" class="btn btn-primary">Đăng nhập</button>
